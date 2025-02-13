@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Webn Creations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin-left: 5%;
+            margin-right: 5%;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #000000;
+            position: relative;
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        header nav a:hover {
+            color: #f5c518;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none; /* Hide by default */
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            display: none; /* Hide by default */
+            flex-direction: column;
+            background-color: #000000;
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .mobile-nav a:hover {
+            background-color: #f5c518;
+            color: #000;
+        }
+
+        /* Show mobile nav when active */
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f5c518;
+            font-size: xxx-large;
+        }
+
+        section {
+            padding: 5%;
+        }
+
+        .content {
+            margin-left: 7%;
+            margin-right: 7%;
+            text-align: center;
+            color: #f5c518;
+            font-size: xxx-large;
+            padding-top: 10%;
+            padding-bottom: 0%;
+        }
+
+        .sub {
+            text-align: center;
+            color: #ffffff;
+            font-weight: bolder;
+            font-size: large;
+            padding-bottom: 10%;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 5%;
+        }
+
+        .contact-button {
+            background-color: #f5c518;
+            color: rgb(4, 0, 0);
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #000000;
+            color: #f5c518;
+        }
+
+        .hero {
+            font-size: large;
+            text-align: justify;
+        }
+
+        .content {
+            margin-left: 7%;
+            margin-right: 7%;
+        }
+
+        .heading {
+            text-align: left;
+        }
+
+        .main {
+            padding-top: 1%;
+            font-size: xx-larger;
+        }
+
+        .about-section {
+            margin: 50px 7%;
+            padding: 20px;
+            background-color: #000000;
+            border-radius: 10px;
+            color: #ffffff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-section h2 {
+            color: #f5c518;
+            margin-bottom: 15px;
+            font-size: 26px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-section ul li {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px;
+            text-align: justify;
+        }
+
+        .about-section ul li::before {
+            content: "✔";
+            color: #f5c518;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .sub {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-container h3 {
+            color: #f5c518;
+            margin-bottom: 15px;
+        }
+
+        .footer-container p,
+        .footer-container ul,
+        .footer-container li {
+            margin: 0;
+            padding: 5px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .footer-container a {
+            color: #f5c518;
+            text-decoration: none;
+        }
+
+        .footer-container a:hover {
+            color: #fff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #f5c518;
+        }
+
+        .footer-newsletter form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-newsletter input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .footer-newsletter button {
+            padding: 10px;
+            background-color: #f5c518;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-newsletter button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            /* Header adjustments */
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            header img {
+                height: 50px; /* Smaller logo for smaller screens */
+                margin-bottom: 10px;
+            }
+
+            header nav {
+                display: none; /* Hide desktop nav on mobile */
+            }
+
+            /* Show hamburger menu */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Adjust content padding */
+            .content {
+                padding-top: 20%;
+                font-size: xx-large;
+            }
+
+            .sub {
+                font-size: medium;
+            }
+
+            /* About section adjustments */
+            .about-section {
+                margin: 30px 5%; /* Reduce margin for smaller screens */
+                padding: 15px; /* Reduce padding */
+            }
+
+            .about-section h2 {
+                font-size: 22px; /* Smaller font size for headings */
+            }
+
+            .about-section p,
+            .about-section ul li {
+                font-size: 16px; /* Smaller font size for text */
+            }
+
+            .about-section ul li {
+                padding-left: 20px; /* Adjust bullet position */
+            }
+
+            /* Footer adjustments */
+            .footer-container {
+                grid-template-columns: 1fr; /* Stack footer columns vertically */
+                text-align: center;
+            }
+
+            .footer-contact p {
+                justify-content: center; /* Center contact info */
+            }
+
+            .footer-newsletter form {
+                align-items: center; /* Center newsletter form */
+            }
+
+            .footer-newsletter input,
+            .footer-newsletter button {
+                width: 80%; /* Make input and button wider */
+            }
+
+            .footer-bottom {
+                flex-direction: column; /* Stack social links vertically */
+                gap: 10px; /* Add space between social links */
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Header adjustments */
+            header nav {
+                flex-direction: column; /* Stack nav links vertically */
+                gap: 5px; /* Reduce gap between links */
+            }
+
+            header nav a {
+                font-size: 14px; /* Smaller font size for nav links */
+                margin: 5px 0; /* Reduce margin */
+            }
+
+            /* Content adjustments */
+            .content {
+                padding-top: 30%;
+                font-size: x-large;
+            }
+
+            .sub {
+                font-size: small;
+            }
+
+            /* About section adjustments */
+            .about-section {
+                margin: 20px 3%; /* Reduce margin for very small screens */
+                padding: 10px; /* Reduce padding */
+            }
+
+            .about-section h2 {
+                font-size: 20px; /* Smaller font size for headings */
+            }
+
+            .about-section p,
+            .about-section ul li {
+                font-size: 14px; /* Smaller font size for text */
+            }
+
+            .about-section ul li {
+                padding-left: 15px; /* Adjust bullet position */
+            }
+
+            /* Footer adjustments */
+            .footer-container {
+                grid-template-columns: 1fr; /* Stack footer columns vertically */
+            }
+
+            .footer-contact p {
+                font-size: 12px; /* Smaller font size for contact info */
+            }
+
+            .footer-newsletter input,
+            .footer-newsletter button {
+                width: 100%; /* Full width for input and button */
+            }
+
+            .footer-bottom {
+                font-size: 12px; /* Smaller font size for footer bottom text */
+            }
+        }
+
+        @media (max-width: 320px) {
+            /* Header adjustments */
+            header img {
+                height: 40px; /* Even smaller logo for very small screens */
+            }
+
+            header nav a {
+                font-size: 12px; /* Smaller font size for nav links */
+            }
+
+            /* Content adjustments */
+            .content {
+                padding-top: 40%;
+                font-size: large;
+            }
+
+            .sub {
+                font-size: small;
+            }
+
+            /* About section adjustments */
+            .about-section h2 {
+                font-size: 18px; /* Smaller font size for headings */
+            }
+
+            .about-section p,
+            .about-section ul li {
+                font-size: 12px; /* Smaller font size for text */
+            }
+
+            .about-section ul li {
+                padding-left: 10px; /* Adjust bullet position */
+            }
+
+            /* Footer adjustments */
+            .footer-contact p {
+                font-size: 10px; /* Smaller font size for contact info */
+            }
+
+            .footer-bottom {
+                font-size: 10px; /* Smaller font size for footer bottom text */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="webn logo2.png" alt="Webn Creations Logo">
+        <!-- Hamburger Menu -->
+        <div class="hamburger" onclick="toggleMobileNav()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- Desktop Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="work.html">Our Work</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="work.html">Our Work</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <section>
+            <h1 class="main">Webn Creations</h1>
+            <p class="sub">Turning ideas into innovative, secure, and impactful web experiences</p>
+        </section>
+    </div>
+
+    <div class="center-container">
+        <a href="contact.html" class="contact-button">Contact Us</a>
+    </div>
+
+    <div class="about-section">
+        <div class="about-intro">
+            <h2>About Webn Creations</h2>
+            <p>At Webn Creations, we are more than just a web development agency. We are a team of passionate designers, developers, and strategists dedicated to crafting digital solutions that empower businesses. From custom websites to logo creation and UI/UX design, we blend creativity with cutting-edge technology to bring your vision to life.</p>
+        </div>
+
+        <div class="about-mission-vision">
+            <h2>Our Mission and Vision</h2>
+            <p><strong>Mission:</strong> To deliver tailored, high-quality digital solutions that drive business growth, ensure user satisfaction, and set our clients apart in a competitive market.</p>
+            <p><strong>Vision:</strong> To be a global leader in innovative web development and design by continuously evolving with technology and prioritizing customer success.</p>
+        </div>
+
+        <div class="about-why-choose">
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li>💡 <strong>Innovative Solutions:</strong> We leverage the latest technologies to create cutting-edge web applications.</li>
+                <li>🛠️ <strong>Customization:</strong> Every project is designed specifically for your unique business needs.</li>
+                <li>🔒 <strong>Security First:</strong> Our solutions are built with robust security to protect your data.</li>
+                <li>🌟 <strong>Customer-Centric Approach:</strong> Your satisfaction is our priority, and we ensure smooth communication and support at every step.</li>
+                <li>📱 <strong>Mobile-First Design:</strong> Seamlessly optimized for all devices for the best user experience.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>Webn Creations is dedicated to turning your ideas into innovative, secure, and impactful web experiences. We specialize in custom web development, logo creation, and exceptional UI/UX design.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> webncrea@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> +91 8428623044</p>
+                <p><i class="fas fa-phone-alt"></i> +91 9787666110</p>
+                <p><i class="fas fa-phone-alt"></i> +91 8838771582</p>
+                <p><i class="fas fa-map-marker-alt"></i> Puducherry, India</p>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get the latest updates.</p>
+                <form action="#">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Webn Creations. All Rights Reserved.</p>
+            <p>Follow us: 
+                <a href="#">Instagram</a> | 
+                <a href="#">LinkedIn</a> | 
+                <a href="#">Facebook</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to toggle mobile navigation
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById("mobileNav");
+            mobileNav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webn Creations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #000000;
+            position: relative;
+        }
+
+        header img {
+            height: 60px;
+        }
+
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        header nav a:hover {
+            color: #f5c518;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none; /* Hide by default */
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            display: none; /* Hide by default */
+            flex-direction: column;
+            background-color: #000000;
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .mobile-nav a:hover {
+            background-color: #f5c518;
+            color: #000;
+        }
+
+        /* Show mobile nav when active */
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .content {
+            margin-left: 7%;
+            margin-right: 7%;
+            text-align: center;
+            color: #f5c518;
+            font-size: xxx-large;
+            padding-top: 10%;
+            padding-bottom: 0%;
+        }
+
+        .sub {
+            text-align: center;
+            color: #ffffff;
+            font-weight: bolder;
+            font-size: large;
+            padding-bottom: 10%;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 5%;
+        }
+
+        .contact-button {
+            background-color: #f5c518;
+            color: rgb(4, 0, 0);
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #000000;
+            color: #f5c518;
+        }
+
+        .services-section {
+            margin: 50px 0;
+            padding-left: 7%;
+            padding-right: 7%;
+        }
+
+        .service {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f5c518;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .service:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-text {
+            flex: 1;
+            padding: 20px;
+            color: #000;
+        }
+
+        .service-text h3 {
+            font-size: 24px;
+            color: #070707;
+            margin-bottom: 15px;
+        }
+
+        .service-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .service-image {
+            flex: 1;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-image img {
+            width: 100%;
+            max-width: 400px;
+            max-height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .services {
+            text-align: center;
+            color: #f5c518;
+            font-size: larger;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-container h3 {
+            color: #f5c518;
+            margin-bottom: 15px;
+        }
+
+        .footer-container p,
+        .footer-container ul,
+        .footer-container li {
+            margin: 0;
+            padding: 5px 0;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .footer-container a {
+            color: #f5c518;
+            text-decoration: none;
+        }
+
+        .footer-container a:hover {
+            color: #fff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: #f5c518;
+        }
+
+        .footer-newsletter form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-newsletter input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .footer-newsletter button {
+            padding: 10px;
+            background-color: #f5c518;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-newsletter button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            /* Hide desktop nav on mobile */
+            header nav {
+                display: none;
+            }
+
+            /* Show hamburger menu */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Adjust header padding */
+            header {
+                padding: 15px;
+            }
+
+            /* Adjust content padding */
+            .content {
+                padding-top: 20%;
+                font-size: xx-large;
+            }
+
+            .sub {
+                font-size: medium;
+            }
+
+            /* Stack services vertically */
+            .service {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .service-text, .service-image {
+                flex: 1 1 100%;
+                padding: 10px;
+            }
+
+            .service-image img {
+                max-width: 100%;
+            }
+
+            /* Stack footer columns */
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-contact p {
+                justify-content: center;
+            }
+
+            .footer-newsletter form {
+                align-items: center;
+            }
+
+            .footer-newsletter input,
+            .footer-newsletter button {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding-top: 30%;
+                font-size: x-large;
+            }
+
+            .sub {
+                font-size: small;
+            }
+
+            .service-text h3 {
+                font-size: 20px;
+            }
+
+            .service-text p {
+                font-size: 14px;
+            }
+
+            .footer-newsletter input,
+            .footer-newsletter button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .content {
+                padding-top: 40%;
+                font-size: large;
+            }
+
+            .sub {
+                font-size: small;
+            }
+
+            .service-text h3 {
+                font-size: 18px;
+            }
+
+            .service-text p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="webn logo2.png" alt="Webn Creations Logo">
+        <!-- Hamburger Menu -->
+        <div class="hamburger" onclick="toggleMobileNav()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- Desktop Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="work.html">Our Work</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="work.html">Our Work</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </header>
+
+    <div class="content">
+        <section>
+            <h1 class="main">Webn Creations</h1>
+            <p class="sub">Turning ideas into innovative, secure, and impactful web experiences</p>
+        </section>
+    </div>
+
+    <div class="center-container">
+        <a href="contact.html" class="contact-button">Contact Us</a>
+    </div>
+
+    <div class="services">
+        <h1>Our Services</h1>
+    </div>
+
+    <div class="services-section">
+        <div class="service">
+            <div class="service-text">
+                <h3>Custom Website Development</h3>
+                <p>Your website is the digital front door to your business. At Webn Creations, we specialize in developing custom websites that are functional, scalable, and visually captivating.
+                    What we offer:
+                    
+                    Fully responsive websites that adapt to all devices.
+                    Integration with the latest technologies and platforms.
+                    Secure and optimized code for high performance.
+                    We build websites that tell your story and drive results!</p>
+            </div>
+            <div class="service-image">
+                <img src="custom.jpg" alt="Custom Website Development">
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-text">
+                <h3>Logo Creation</h3>
+                <p>At Webn Creations, we believe a logo is more than just a design—it's the face of your brand. Our expert designers craft custom logos that capture your brand's essence and leave a lasting impression. Whether you're a startup or an established business, we deliver designs that speak directly to your audience.
+                   <p> Why choose us?
+                    
+                    Unique and creative designs tailored to your brand.
+                    Professional consultation to understand your vision.
+                    High-quality formats suitable for all platforms.
+                   </p>
+                    </p>
+            </div>
+            <div class="service-image">
+                <img src="logocreation.jpg" alt="Logo Creation">
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-text">
+                <h3>Website Maintenance</h3>
+                <p>A great website requires continuous care to perform at its best. Our Website Maintenance services ensure that your website stays up-to-date, secure, and error-free.
+                    Our maintenance services include:
+                    
+                    Regular updates for plugins, frameworks, and software.
+                    Performance optimization to improve speed and functionality.
+                    Security checks to prevent vulnerabilities and attacks.
+                    Let us handle the upkeep so you can focus on growing your business!</p>
+            </div>
+            <div class="service-image">
+                <img src="webmain.jpg" alt="Website Maintenance">
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-text">
+                <h3>Website UI and UX Creation</h3>
+                <p>Great design isn’t just about aesthetics; it’s about delivering a seamless and enjoyable user experience. At Webn Creations, we design user interfaces (UI) and user experiences (UX) that keep your audience engaged and coming back for more.
+                    Why work with us?
+                    
+                    Designs rooted in user behavior and research.
+                    Clean, intuitive layouts for effortless navigation.
+                    Mobile-first designs optimized for every device.
+                    We create digital experiences that captivate and convert!</p>
+            </div>
+            <div class="service-image">
+                <img src="ui.jpg" alt="Website UI and UX Creation">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>Webn Creations is dedicated to turning your ideas into innovative, secure, and impactful web experiences. We specialize in custom web development, logo creation, and exceptional UI/UX design.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> webncrea@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> +91 8428623044</p>
+                <p><i class="fas fa-phone-alt"></i> +91 9787666110</p>
+                <p><i class="fas fa-phone-alt"></i> +91 8838771582</p>
+                <p><i class="fas fa-map-marker-alt"></i> Puducherry, India</p>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get the latest updates.</p>
+                <form action="#">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Webn Creations. All Rights Reserved.</p>
+            <p>Follow us: 
+                <a href="#">Instagram</a> | 
+                <a href="#">LinkedIn</a> | 
+                <a href="#">Facebook</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to toggle mobile navigation
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById("mobileNav");
+            mobileNav.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
